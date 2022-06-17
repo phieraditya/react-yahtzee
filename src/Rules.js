@@ -69,11 +69,14 @@ class FullHouse extends Rule {
 class SmallStraight extends Rule {
   evalRoll = (dice) => {
     const d = new Set(dice);
-
-    // small straight must be 4+ different dice
-    return d.size === (4 || 5) && this.freq(dice).some((c) => c <= 2)
-      ? this.score
-      : 0;
+    // small straight possibility 1234*, 2345*, 3456*
+    // straight can be 234 + either 1 or 5
+    if (d.has(2) && d.has(3) && d.has(4) && (d.has(1) || d.has(5)))
+      return this.score;
+    // or 345 + either 2 or 6
+    if (d.has(3) && d.has(4) && d.has(5) && (d.has(2) || d.has(6)))
+      return this.score;
+    return 0;
   };
 }
 
