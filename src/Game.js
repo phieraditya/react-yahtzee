@@ -46,6 +46,7 @@ class Game extends Component {
   }
 
   toggleLocked(idx) {
+    if (this.state.rollsLeft <= 0) return;
     // toggle whether idx is in locked or not
     this.setState((st) => ({
       locked: [
