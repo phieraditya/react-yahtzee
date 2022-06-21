@@ -30,10 +30,11 @@ class Die extends Component {
   }
   render() {
     const { val, dies, locked } = this.props;
+    let classes = 'Die ';
+    if (locked) classes += 'Die-locked';
     return (
       <FontAwesomeIcon
-        className={'Die'}
-        style={{ color: locked ? 'grey' : 'white' }}
+        className={classes}
         onClick={this.toggleClick}
         icon={dies[val - 1]}
       ></FontAwesomeIcon>
