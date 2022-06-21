@@ -29,9 +29,10 @@ class Die extends Component {
     this.props.handleClick(this.props.idx);
   }
   render() {
-    const { val, dies, locked, disabled } = this.props;
+    const { val, dies, locked, disabled, rolling } = this.props;
     let classes = 'Die ';
     if (locked) classes += 'Die-locked';
+    if (rolling) classes += 'Die-rolling';
     return (
       <FontAwesomeIcon
         className={classes}
