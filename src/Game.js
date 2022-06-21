@@ -46,15 +46,16 @@ class Game extends Component {
   }
 
   toggleLocked(idx) {
-    if (this.state.rollsLeft <= 0) return;
     // toggle whether idx is in locked or not
-    this.setState((st) => ({
-      locked: [
-        ...st.locked.slice(0, idx),
-        !st.locked[idx],
-        ...st.locked.slice(idx + 1),
-      ],
-    }));
+    if (this.state.rollsLeft > 0) {
+      this.setState((st) => ({
+        locked: [
+          ...st.locked.slice(0, idx),
+          !st.locked[idx],
+          ...st.locked.slice(idx + 1),
+        ],
+      }));
+    }
   }
 
   doScore(rulename, ruleFn) {
@@ -72,7 +73,6 @@ class Game extends Component {
       <div className="Game">
         <header className="Game-header">
           <h1 className="App-title">Yahtzee!</h1>
-
           <section className="Game-dice-section">
             <Dice
               dice={this.state.dice}
