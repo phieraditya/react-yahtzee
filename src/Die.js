@@ -29,7 +29,7 @@ class Die extends Component {
     this.props.handleClick(this.props.idx);
   }
   render() {
-    const { val, dies, locked } = this.props;
+    const { val, dies, locked, disabled } = this.props;
     let classes = 'Die ';
     if (locked) classes += 'Die-locked';
     return (
@@ -37,6 +37,7 @@ class Die extends Component {
         className={classes}
         onClick={this.toggleClick}
         icon={dies[val - 1]}
+        disabled={disabled}
       ></FontAwesomeIcon>
     );
   }
