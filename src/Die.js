@@ -29,12 +29,12 @@ class Die extends Component {
     this.props.handleClick(this.props.idx);
   }
   render() {
-    const { val, dies, locked, handleClick } = this.props;
+    const { val, dies, locked } = this.props;
     return (
       <FontAwesomeIcon
         className={'Die'}
         style={{ color: locked ? 'grey' : 'white' }}
-        onClick={handleClick}
+        onClick={this.toggleClick}
         icon={dies[val - 1]}
       ></FontAwesomeIcon>
     );
