@@ -30,9 +30,18 @@ class Game extends Component {
         chance: undefined,
       },
     };
+    console.log(this.state.dice);
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);
+    this.animateRoll = this.animateRoll.bind(this);
+  }
+  componentDidMount() {
+    this.animateRoll();
+  }
+
+  animateRoll() {
+    this.setState({ rolling: true }, () => setTimeout(this.roll, 1000));
   }
 
   roll(evt) {
@@ -43,9 +52,8 @@ class Game extends Component {
       ),
       locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
       rollsLeft: st.rollsLeft - 1,
-      rolling: true,
+      rolling: false,
     }));
-    setTimeout(() => this.setState({ rolling: false }), 1500);
   }
 
   toggleLocked(idx) {
@@ -68,7 +76,7 @@ class Game extends Component {
       rollsLeft: NUM_ROLLS,
       locked: Array(NUM_DICE).fill(false),
     }));
-    this.roll();
+    this.animateRoll();
   }
 
   render() {
@@ -91,7 +99,7 @@ class Game extends Component {
                   this.state.locked.every((x) => x) ||
                   this.state.rollsLeft === 0
                 }
-                onClick={this.roll}
+                onClick={this.animateRoll}
               >
                 {this.state.rollsLeft} Rerolls Left
               </button>

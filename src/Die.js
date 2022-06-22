@@ -20,6 +20,7 @@ class Die extends Component {
       faDiceFive,
       faDiceSix,
     ],
+    val: 1,
   };
   constructor(props) {
     super();
@@ -31,7 +32,7 @@ class Die extends Component {
   render() {
     const { val, dies, locked, disabled, rolling } = this.props;
     let classes = 'Die ';
-    if (locked) classes += 'Die-locked';
+    if (locked) classes += 'Die-locked ';
     if (rolling) classes += 'Die-rolling';
     return (
       <FontAwesomeIcon
