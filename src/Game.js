@@ -30,7 +30,6 @@ class Game extends Component {
         chance: undefined,
       },
     };
-    console.log(this.state.dice);
     this.roll = this.roll.bind(this);
     this.doScore = this.doScore.bind(this);
     this.toggleLocked = this.toggleLocked.bind(this);

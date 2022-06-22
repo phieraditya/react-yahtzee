@@ -33,7 +33,7 @@ class Die extends Component {
     const { val, dies, locked, disabled, rolling } = this.props;
     let classes = 'Die ';
     if (locked) classes += 'Die-locked ';
-    if (rolling) classes += 'Die-rolling';
+    if (rolling && !locked) classes += 'Die-rolling';
     return (
       <FontAwesomeIcon
         className={classes}
