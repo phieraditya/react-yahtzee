@@ -119,6 +119,16 @@ class ScoreTable extends Component {
             </tbody>
           </table>
         </section>
+        <section className="ScoreTable-section TotalScore-section">
+          <table>
+            <tbody>
+              <tr className="TotalScore">
+                <td className="TotalScore-label">Total Score</td>
+                <td className="TotalScore-score">{scores.yahtzee}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
       </div>
     );
   }

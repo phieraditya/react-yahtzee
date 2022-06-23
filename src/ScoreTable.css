@@ -17,3 +17,21 @@
   vertical-align: top;
   width: 100%;
 }
+
+.TotalScore-section {
+  margin: 2em 0;
+}
+.TotalScore td {
+  font-weight: 250;
+  font-size: 1.5em;
+  padding: 0.2em;
+  border-bottom: solid 2px purple;
+}
+.TotalScore-label {
+  width: 50%;
+  text-align: left;
+}
+.TotalScore-score {
+  width: 50%;
+  text-align: right;
+}
